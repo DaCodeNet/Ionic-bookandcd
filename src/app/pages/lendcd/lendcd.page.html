@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CD</ion-title>
+    <ion-buttons slot="end" (click)="dismissModal()">
+        <ion-icon name="close"></ion-icon>      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card [ngClass]="{'is-on': cd.isLoan, 'is-off': !cd.isLoan}">
+        <ion-card-header>{{ cd.title }}</ion-card-header>
+        <ion-card-content>
+          <p>{{ cd.author }}</p>
+        </ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button full color="danger"
+              [disabled]="!cd.isLoan"
+              (click)="onToggleCD()">Prêter</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button full color="secondary" [disabled]="cd.isLoan"
+              (click)="onToggleCD()">Rendre</ion-button>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+</ion-content>

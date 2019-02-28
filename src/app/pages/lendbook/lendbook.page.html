@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Book</ion-title>
+    <ion-buttons slot="end" (click)="dismissModal()">
+        <ion-icon name="close"></ion-icon>      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card [ngClass]="{'is-on': book.isLoan, 'is-off': !book.isLoan}">
+        <ion-card-header>{{ book.title }}</ion-card-header>
+        <ion-card-content>
+          <p *ngFor="let line of book.description">{{ line }}</p>
+        </ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button full color="danger"
+              [disabled]="!book.isLoan"
+              (click)="onToggleBook()">Prêter</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" [disabled]="book.isLoan"
+              (click)="onToggleBook()">Rendre</ion-button>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+</ion-content>

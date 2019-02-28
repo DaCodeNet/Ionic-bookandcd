@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>
+      CD List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let cd of cdList; let i = index" (click)="onLoadCD(i)"
+    [ngClass]="{'is-on': cd.isLoan, 'is-off': !cd.isLoan}" >        
+        <ion-card-header>
+            <ion-card-title>{{ cd.title }}</ion-card-title>
+            <ion-card-subtitle>{{ cd.author }}</ion-card-subtitle>          
+          </ion-card-header>
+    </ion-card>
+    
+</ion-content>

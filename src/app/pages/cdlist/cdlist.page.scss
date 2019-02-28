@@ -1,0 +1,11 @@
+
+.is-on {
+  ion-card-content, ion-card-header, ion-grid {          
+    background-image: radial-gradient(circle at center, white, green);
+  }
+}
+.is-off {
+  ion-card-content, ion-card-header, ion-grid {       
+    background-image: radial-gradient(circle at center, white, red);
+  }
+}
